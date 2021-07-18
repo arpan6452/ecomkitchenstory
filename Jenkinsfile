@@ -27,7 +27,7 @@ pipeline {
             steps {
                 echo '----------------- This is a build docker image phase ----------'
                 bat '''
-                    docker image build -t ecom-webservice .
+                    docker image build -t ecom-kstory-webservice .
                 '''
             }
         }
@@ -36,7 +36,7 @@ pipeline {
             steps {
                 echo '----------------- This is a docker deploment phase ----------'
                 bat '''                 
-					docker container run --restart always --name ecom-webservice -p 8081:8081 -d ecom-webservice
+					docker container run --restart always --name ecom-kstory-webservice -p 8081:8081 -d ecom-kstory-webservice
 				'''
             }
         }
