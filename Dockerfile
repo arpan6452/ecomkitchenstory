@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk
-COPY ./target/kitchenstory-0.0.1-SNAPSHOT.jar kitchenstory-0.0.1-SNAPSHOT.jar
-CMD ["java" ,"-jar","kitchenstory-0.0.1-SNAPSHOT.jar"]
+COPY ./target/spring_boot_jwt-0.0.1-SNAPSHOT.jar spring_boot_jwt-0.0.1-SNAPSHOT.jar
+CMD ["java" ,"-jar","spring_boot_jwt-0.0.1-SNAPSHOT.jar"]
 RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 #-> Create a image for springboot webservice

@@ -2,7 +2,7 @@ package com.app.service;
 
 import java.util.List;
 
-import com.app.model.Item;
+import com.app.entity.Item;
 
 public interface KitchenService {
 	public Item createItem(Item item);

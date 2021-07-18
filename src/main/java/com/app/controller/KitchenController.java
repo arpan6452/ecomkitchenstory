@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.model.Item;
+import com.app.entity.Item;
 import com.app.service.KitchenService;
 
 @RestController()
-@CrossOrigin()
+//@CrossOrigin(origins= {"http://localhost:8080"})
+@CrossOrigin(origins= {"http://kstory-simplilearn.s3-website.us-east-2.amazonaws.com/"})
 public class KitchenController{
 	
 	@Autowired
@@ -38,7 +39,7 @@ public class KitchenController{
 		return kitchenService.getAllItems();
 	}
 
-	@GetMapping("/items/filter")
+	@GetMapping("/item/filter")
 	public List<Item> filterItem(@RequestParam String itemCatagory, @RequestParam String itemCourse, @RequestParam(required = false) String itemType) {
 		if(itemType == null || itemType.equals("") )
 			return kitchenService.filterItem(itemCatagory, itemCourse);
