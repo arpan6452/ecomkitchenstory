@@ -22,6 +22,15 @@ pipeline {
                 bat 'mvn clean package -DskipTests'
             }
         }
+		
+		stage('Docker Build') {
+            steps {
+                echo '----------------- This is a build docker image phase ----------'
+                bat '''
+                    docker image build -t ecom-webservice .
+                '''
+            }
+        }
 
        
     }
