@@ -42,7 +42,7 @@ pipeline {
                      else \
                     echo OK; \
                  fi;);
-            docker container run --restart always --name ecom-webservice -p 8081:8081 -d ecom-webservice
+            docker container run --restart always --name ecom-webservice -p 8090:8090 -d ecom-webservice
             '''
             }
         }
