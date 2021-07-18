@@ -12,14 +12,14 @@ pipeline {
         stage('Maven Compile') {
             steps {
                 echo '----------------- This is a compile phase ----------'
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
         
         stage('Maven Build') {
              steps {
                 echo '----------------- This is a build phase ----------'
-                sh 'mvn clean package -DskipTests'
+                bat 'mvn clean package -DskipTests'
             }
         }
 
