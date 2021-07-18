@@ -1,4 +1,4 @@
-FROM openjdk:11-jdk
+FROM openjdk:8-jdk
 COPY ./target/kitchenstory-0.0.1-SNAPSHOT.jar kitchenstory-0.0.1-SNAPSHOT.jar
 CMD ["java" ,"-jar","kitchenstory-0.0.1-SNAPSHOT.jar"]
 RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
