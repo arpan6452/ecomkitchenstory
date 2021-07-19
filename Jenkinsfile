@@ -23,21 +23,12 @@ pipeline {
             }
         }
 		
-		stage('Docker Build') {
+		stage('Maven Deploy') {
             steps {
-                echo '----------------- This is a build docker image phase ----------'
+                echo '----------------- This is a deploment phase ----------'
                 bat '''
-                    docker image build -t ecom-kstory-webservice .
+                    java -jar ./target/spring_boot_jwt-0.0.1-SNAPSHOT.jar
                 '''
-            }
-        }
-
-       stage('Docker Deploy') {
-            steps {
-                echo '----------------- This is a docker deploment phase ----------'
-                bat '''                 
-					docker container run --restart always --name ecom-kstory-webservice -p 8081:8081 -d ecom-kstory-webservice
-				'''
             }
         }
     }
