@@ -1,6 +1,5 @@
 FROM openjdk:8-jdk
 COPY ./target/spring_boot_jwt-0.0.1-SNAPSHOT.jar spring_boot_jwt-0.0.1-SNAPSHOT.jar
-WORKDIR /
 CMD ["java" ,"-jar","spring_boot_jwt-0.0.1-SNAPSHOT.jar"]
 RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 

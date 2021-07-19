@@ -23,12 +23,27 @@ pipeline {
             }
         }
 		
-		stage('Maven Deploy') {
+		stage('Docker Build') {
             steps {
-                echo '----------------- This is a deploment phase ----------'
+                echo '----------------- This is a build docker image phase ----------'
                 bat '''
-                    java -jar ./target/spring_boot_jwt-0.0.1-SNAPSHOT.jar
+                    docker image build -t ecom-webservice .
                 '''
+            }
+        }
+
+       stage('Docker Deploy') {
+            steps {
+                echo '----------------- This is a docker deploment phase ----------'
+                bat '''
+                 (if  [ $(docker ps -a | FINDSTR ecom-webservice | cut -d " " -f1) ]; then \
+                        echo $(docker rm -f ecom-webservice); \
+                        echo "---------------- successfully removed ecom-webservice ----------------"
+                     else \
+                    echo OK; \
+                 fi;);
+            docker container run --restart always --name ecom-webservice -p 8090:8090 -d ecom-webservice
+            '''
             }
         }
     }
